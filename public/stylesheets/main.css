@@ -128,7 +128,8 @@ body {
 	
 #search {
 	text-align: center;
-	padding: 20px;
+	padding-bottom: 10px;
+	
 }
   #search form label{
     display: block;
