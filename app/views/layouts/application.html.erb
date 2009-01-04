@@ -21,7 +21,7 @@
 			<div id="header">
 				<h1><%= link_to 'RubyJobs', :root %></h1>
 				<p>
-					<%= link_to 'Post a new job >>', new_job_path %>
+					<%= main_nav %>
 				</p>
 			</div>
 			<div id="content">
@@ -35,6 +35,7 @@
 				Some useful links:
 				
 				<ul>
+					<li><%= link_to 'About Us', about_us_path %></li>
 					<li><a href="http://github.com/GavinJoyce/rubyjobs/tree/master">Code on github</a></li>
 					<li><a href="http://rubyjobs.lighthouseapp.com/projects/21484-rubyjobs/overview">Issue Tracker</a></li>
 					<li><a href="http://rubyjobs.uservoice.com/">Ideas and suggestions</a></li>

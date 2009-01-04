@@ -18,12 +18,12 @@
 		Latest Ruby Jobs:
 	</h1>
 
-	<table id="job_list">
+	<ul id="job_list">
 	<% if @jobs.length > 0 %>
 		<%= render :partial => @jobs %>
 	<% else %>
-    <tr id="no_jobs"><td>No jobs found!</td></tr>
+    <span id="no_jobs">Sorry, no jobs available</span>
 	<% end %>
-	</table>
+	</ul>
 
 </div>

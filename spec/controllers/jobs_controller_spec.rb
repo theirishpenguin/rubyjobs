@@ -31,7 +31,7 @@ describe JobsController do
 
 		describe "when there are jobs to display" do
 			it "should list the most recent jobs" do
-				response.should have_tag("table#job_list")
+				response.should have_tag("ul#job_list")
 			end
 		end
 
@@ -42,7 +42,7 @@ describe JobsController do
 			end
 
 			it "should show a message indicating that there are no jobs" do
-				response.should have_tag("tr#no_jobs")
+				response.should have_tag("span#no_jobs")
 			end
 
 			it "should not display any jobs in the table" do

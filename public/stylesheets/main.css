@@ -91,7 +91,7 @@ body {
 		margin-top: 20px;
 	}
 	
-	#header p a {
+	#header p a, .highlighted_link a {
 		background-color: #FFFFCC;
 		padding: 6px;
 		color: #333;
@@ -167,7 +167,11 @@ body {
 	width: 100%;
 }
 
-	#job_list td {
+	#job_list {
+		list-style-type: none;
+	}
+
+	.job {
 		border-bottom: 1px solid #ccc;
 		padding: 6px;
 	}
@@ -178,7 +182,7 @@ body {
 		}
 		
 		.job .title a {
-			color: red;
+			color: darkblue;
 		}
 		
 		.job .company_name {
@@ -187,7 +191,7 @@ body {
 		}
 		
 		.job .created_at {
-		  text-align: right;
+		  float: right;
 		}
 
 h2#job_title {
@@ -201,6 +205,7 @@ h2#job_title span.connective {
 dl#job_details {
   margin-top: 1em;
   line-height: 1.5;
+	margin-bottom: 30px;
 }
 dl#job_details dt {
   font-weight: bold;

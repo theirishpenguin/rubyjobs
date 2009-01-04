@@ -11,4 +11,6 @@ ActionController::Routing::Routes.draw do |map|
 	end
 
   map.root :controller => "jobs"
+
+	map.about_us '/about_us', :controller => 'pages', :action => 'about_us'
 end
