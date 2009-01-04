@@ -8,6 +8,12 @@
   <dt>How to apply:</dt><dd><%= h(@job.how_to_apply) %></dd>
 </dl>
 
-<p class="highlighted_link">
-	<%= link_to('<< Return to jobs list', :root) %>
-</p>
+<% if param_present? :key %>
+	<p class="highlighted_link">
+		<%= link_to('Edit this job', :action => 'edit', :id => @job.id, :key => params[:key]) %>
+	</p>
+<% else %>
+	<p class="highlighted_link">
+		<%= link_to('<< Return to jobs list', :root) %>
+	</p>
+<% end %>

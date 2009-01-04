@@ -176,6 +176,10 @@ describe JobsController do
 				response.should be_redirect #TODO: GJ: test for view action
 				flash[:notice].should_not == nil
 			end
+			
+			it "should create and redirect to the job with an edit link" do
+				pending
+			end
 
 			it "should send an email" do
 				JobMailer.should_receive(:deliver_confirmation)

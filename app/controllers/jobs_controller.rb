@@ -32,8 +32,6 @@ class JobsController < ApplicationController
 	end
 
 	def edit
-		@types = Type.all
-		@locations = Location.all
 		find_job_with_key
 	end
 
@@ -47,7 +45,7 @@ class JobsController < ApplicationController
 				JobMailer.deliver_confirmation(@job)
 
 				flash[:notice] = 'Job was successfully created.'
-				format.html { redirect_to(@job) }
+				format.html { redirect_to :action => 'show', :id => @job.id, :key => @job.key }
 				format.xml  { render :xml => @job, :status => :created, :location => @job }
 			else
 				format.html { render :action => "new" }
@@ -63,7 +61,7 @@ class JobsController < ApplicationController
 			respond_to do |format|
 				if @job.update_attributes(params[:job])
 					flash[:notice] = 'Job was successfully updated.'
-					format.html { redirect_to(@job) }
+					format.html { redirect_to :action => 'show', :id => @job.id, :key => @job.key }
 					format.xml  { head :ok }
 				else
 					format.html { render :action => "edit" }
@@ -91,6 +89,8 @@ class JobsController < ApplicationController
 
 	def find_job_with_key
 		@job = Job.find_by_id_and_key(params[:id], params[:key])
+		@types = Type.all
+		@locations = Location.all
 		
 		if @job.nil?
 			flash[:notice] = "That job is no longer available"
