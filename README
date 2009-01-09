@@ -4,12 +4,21 @@ Please see http://groups.google.com/group/ruby_ireland/browse_thread/thread/8f82
 
 == Required Gems
 
-#TODO: GJ: list the required gems here
+- sqlite3-ruby
+- rspec-rails
+- wvanbergen-scoped_search
+- rubyist-aasm
+
+== Development Environment Setup
+
+- See http://wiki.github.com/GavinJoyce/rubyjobs/getting-your-development-environment-up-and-running
+  for details on getting the rubyjobs codebase running on your platform including Ruby On Rails and
+  the above required gems. For more detail you can drill down into the deployment steps below.
 
 == Deployment Steps
 
 - OS install, new user, ssh + iptables: http://articles.slicehost.com/2008/11/28/ubuntu-intrepid-setup-page-1
-- update Os: http://articles.slicehost.com/2008/11/28/ubuntu-intrepid-setup-page-2
+- Update OS: http://articles.slicehost.com/2008/11/28/ubuntu-intrepid-setup-page-2
 - Apache : http://articles.slicehost.com/2008/12/11/ubuntu-intrepid-installing-apache-and-php5
 - Ruby & RubyGems : http://articles.slicehost.com/2008/4/30/ubuntu-hardy-ruby-on-rails
 - Passenger : http://articles.slicehost.com/2008/5/1/ubuntu-hardy-mod_rails-installation
