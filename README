@@ -1,3 +1,24 @@
 == Welcome to rubyjobs, a simple job listing app from Ruby Ireland
  
 Please see http://groups.google.com/group/ruby_ireland/browse_thread/thread/8f82eeb2a1becb0b
+
+== Required Gems
+
+#TODO: GJ: list the required gems here
+
+== Deployment Steps
+
+- OS install, new user, ssh + iptables: http://articles.slicehost.com/2008/11/28/ubuntu-intrepid-setup-page-1
+- update Os: http://articles.slicehost.com/2008/11/28/ubuntu-intrepid-setup-page-2
+- Apache : http://articles.slicehost.com/2008/12/11/ubuntu-intrepid-installing-apache-and-php5
+- Ruby & RubyGems : http://articles.slicehost.com/2008/4/30/ubuntu-hardy-ruby-on-rails
+- Passenger : http://articles.slicehost.com/2008/5/1/ubuntu-hardy-mod_rails-installation
+- Install Git : sudo apt-get install git-core
+- Capify App
+- Create deployer user
+- cap:deploy
+
+
+
+
+

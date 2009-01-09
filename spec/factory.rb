@@ -7,9 +7,9 @@ module Factory
 
 	def self.new_job(attributes = {})
     default_attributes = {
-   		:company_name 			=> 'ACME Inc.',
-			:company_website 		=> 'www.acme.org',
-			:company_email			=> 'jobs@acme.org',
+   		:company			 			=> 'ACME Inc.',
+			:url						 		=> 'www.acme.org',
+			:email							=> 'jobs@acme.org',
 			:type_id						=> Factory.create_type.id,
 			:location_id				=> Factory.create_location.id,
 			:title							=> 'Rails developer required for greenfield project',

@@ -22,3 +22,15 @@ config.action_controller.perform_caching             = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+
+smtp_password = YAML.load(File.open(File.join(File.dirname(__FILE__), '../database.yml')))['production']['smtp_password']
+
+ActionMailer::Base.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :address        => "smtp.gmail.com",
+  :port           => 587,
+  :domain         => "jobs@rubyjobs.ie",
+  :authentication => :plain,
+  :user_name      => "jobs@rubyjobs.ie",
+  :password       => smtp_password 
+}

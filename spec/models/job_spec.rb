@@ -31,22 +31,22 @@ describe Job do
 			@job.should be_valid
 		end
 		
-		it "should ensure that a company_name is provided" do
-			@job = Factory.new_job(:company_name => nil)
+		it "should ensure that a company is provided" do
+			@job = Factory.new_job(:company => nil)
 			@job.should_not be_valid
-			@job.errors.on(:company_name).should_not be_nil
+			@job.errors.on(:company).should_not be_nil
 		end
 		
-		it "should ensure that a company_email is provided" do
-			@job = Factory.new_job(:company_email => nil)
+		it "should ensure that an email is provided" do
+			@job = Factory.new_job(:email => nil)
 			@job.should_not be_valid
-			@job.errors.on(:company_email).should_not be_nil
+			@job.errors.on(:email).should_not be_nil
 		end
 
-		it "should ensure that company_email is a valid email" do
-			@job = Factory.new_job(:company_email => 'invalid@email')
+		it "should ensure that email is a valid email" do
+			@job = Factory.new_job(:email => 'invalid@email')
 			@job.should_not be_valid
-			@job.errors.on(:company_email).should_not be_nil
+			@job.errors.on(:email).should_not be_nil
 		end
 
 		it "should ensure that a type_id is provided" do
@@ -85,9 +85,9 @@ describe Job do
 			Job.should respond_to(:search_for)
 		end
 		
-		it "should search the company_name" do
+		it "should search the company" do
 			Job.search_for('google').length.should == 0
-			Factory.create_job(:company_name => 'Google')
+			Factory.create_job(:company => 'Google')
 			Job.search_for('google').length.should == 1
 		end
 		

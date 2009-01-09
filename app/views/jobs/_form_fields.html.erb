@@ -1,42 +1,51 @@
-<fieldset class="first_col">
-<p>
-	<%= form.label :title %><br />
-	<%= form.text_field :title, :tabindex => 1 %>
-</p>
-
-<p>
-	<%= form.label :type %><br />
-	<%= form.select(:type_id, @types.collect {|t| [t.name, t.id]}, { :include_blank => true }, :tabindex => 2 ) %>
-</p>
-
-<p>
-	<%= form.label :location %><br />
-	<%= form.select(:location_id, @locations.collect {|l| [l.name, l.id]}, { :include_blank => true }, :tabindex => 3 ) %>
-</p>
-<p>
-	<%= form.label :company_name %><br />
-	<%= form.text_field :company_name, :tabindex => 4 %>
-</p>
-<p>
-	<%= form.label :company_website %><br />
-	<%= form.text_field :company_website, :tabindex => 5 %>
-</p>
-<p>
-	<%= form.label :company_email %><br />
-	<%= form.text_field :company_email, :tabindex => 6 %>
-</p>
-
-<p>
-	<%= form.label :how_to_apply %>(<span class='help_tip' title = 'eg. Email CV to jobs@somecompany.com, phone Dave at 01-XXXXXXX, etc.'>?</span>)<br />
-	<%= form.text_field :how_to_apply, :tabindex => 7 %>
-</p>
-
-</fieldset>
-
-<fieldset class="second_col">
-<p>
-	<%= form.label :description %><br />
-	<%= form.text_area :description, :tabindex => 8 %>
-</p>
-
-</fieldset>
+<table class="form">
+	<tr>
+  	<th><%= form.label :company %>:</th>
+  	<td><%= form.text_field :company %></td>
+	</tr>
+	<tr>
+  	<th>URL:</th>
+  	<td>
+    	<%= form.text_field :url %><br/>
+    	eg. http://www.incremental.ie/
+  	</td>
+	</tr>
+	<tr>
+  	<th><%= form.label :title %>:</th>
+  	<td>
+    	<%= form.text_field :title %><br/>
+    	eg. "Rails Developer" or "Merb Guru"
+  	</td>
+	</tr>
+	<tr>
+  	<th>Job Type:</th>
+  	<td>
+    	<%= form.select(:type_id, @types.collect {|t| [t.name, t.id]}, { :include_blank => true } ) %>
+  	</td>
+	</tr>
+	<tr>
+  	<th>Location:</th>
+  	<td>
+    	<%= form.select(:location_id, @locations.collect {|l| [l.name, l.id]}, { :include_blank => true } ) %>
+  	</td>
+	</tr>
+	<tr>
+  	<th><%= form.label :description %>:</th>
+  	<td>
+			<%= form.text_area :description %>
+  	</td>
+	</tr>
+	<tr>
+  	<th><%= form.label :how_to_apply %>:</th>
+  	<td>
+    	<%= form.text_field :how_to_apply %>
+  	</td>
+	</tr>
+	<tr class="private">
+  	<th>Your Email:</th>
+  	<td>
+    	<%= form.text_field :email %><br />
+			*This will remain private* - Please use a real email, you won't be able to edit the job without one.
+  	</td>
+	</tr>
+</table>

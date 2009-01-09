@@ -22,5 +22,3 @@ Rails::Initializer.run do |config|
   }
 
 end
-
-ActionMailer::Base.delivery_method = :sendmail

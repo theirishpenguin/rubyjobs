@@ -5,12 +5,12 @@ include Factory
 describe JobMailer do
 	describe "when sending a confirmation email" do
 		before do
-			@job = Factory.create_job(:company_email => 'someone@somewhere.org')
+			@job = Factory.create_job(:email => 'someone@somewhere.org')
 			@email = JobMailer.create_confirmation(@job)
 		end
 		
 		it "should be sent to the creator's email address" do
-			@email.to.should == [@job.company_email]
+			@email.to.should == [@job.email]
 		end
 		
 		it "should be from jobs@rubyjobs.ie" do #NOTE: GJ: we may move this to configuration later
