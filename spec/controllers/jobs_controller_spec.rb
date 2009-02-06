@@ -1,7 +1,6 @@
 require File.join(File.dirname(__FILE__), '..', "spec_helper" )
 require File.dirname(__FILE__) + '/../factory'
 
-include Factory
 include AuthenticatedTestHelper
 
 describe JobsController do
@@ -9,7 +8,7 @@ describe JobsController do
 
 	describe "the index action" do
 		before do
-			@job = Factory.create_job
+			@job = Factory(:job)
 			get :index
 		end
 
@@ -88,7 +87,7 @@ describe JobsController do
 
 	describe "the show action" do
 		before do
-			@job = Factory.create_job
+			@job = Factory(:job)
 			get 'show', :id => @job
 		end
 
@@ -124,7 +123,7 @@ describe JobsController do
 	describe "the edit action" do
 		describe "with a valid action key" do
 			before do
-				@job = Factory.create_job
+				@job = Factory(:job)
 				get :edit, { :id => @job, :key => @job.key }
 			end
 			
@@ -146,7 +145,7 @@ describe JobsController do
 		
 		describe "with no action key" do
 			before do
-				@job = Factory.create_job
+				@job = Factory(:job)
 				get :edit, { :id => @job }
 			end
 			
@@ -157,7 +156,7 @@ describe JobsController do
 		
 		describe "with an invalid action key" do
 			before do
-				@job = Factory.create_job
+				@job = Factory(:job)
 				get :edit, { :id => @job, :key => "abc#{@job.key}" }
 			end
 			
@@ -171,7 +170,7 @@ describe JobsController do
 		describe "with valid attributes" do
 			it "should create and redirect to the new job" do
 				Job.count.should == 0
-				post 'create', { :job => Factory.new_job.attributes }
+				post 'create', { :job => Factory.build(:job).attributes }
 				Job.count.should == 1
 				response.should be_redirect #TODO: GJ: test for view action
 				flash[:notice].should_not == nil
@@ -183,13 +182,13 @@ describe JobsController do
 
 			it "should send an email" do
 				JobMailer.should_receive(:deliver_confirmation)
-				post 'create', { :job => Factory.new_job.attributes }
+				post 'create', { :job => Factory.build(:job).attributes }
 			end
 		end
 		
 		describe "with invalid attributes" do
 			before do
-				post 'create', { :job => Factory.new_job(:title => nil).attributes }
+				post 'create', { :job => Factory.build(:job, :title => nil).attributes }
 			end
 			
 			it "should not create a job" do

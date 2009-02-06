@@ -15,6 +15,7 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 
 	config.gem 'wvanbergen-scoped_search', :lib => 'scoped_search', :source => 'http://gems.github.com'
+	config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
 
   config.action_controller.session = {
     :session_key => '_rubyjobs_session',

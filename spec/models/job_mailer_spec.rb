@@ -1,11 +1,10 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 require File.dirname(__FILE__) + '/../factory'
-include Factory
 
 describe JobMailer do
 	describe "when sending a confirmation email" do
 		before do
-			@job = Factory.create_job(:email => 'someone@somewhere.org')
+			@job = Factory(:job)
 			@email = JobMailer.create_confirmation(@job)
 		end
 		
