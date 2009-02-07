@@ -7,10 +7,6 @@ describe Location do
 			Factory.build(:location).should be_valid
 		end
 		
-		it "should ensure that a name is provided" do
-			location = Factory.build(:location, :name => nil)
-			location.should_not be_valid
-			location.errors.on(:name).should_not be_nil
-		end
+		it { should validate_presence_of(:name) }
 	end
 end
