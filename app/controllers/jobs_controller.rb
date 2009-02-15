@@ -22,9 +22,7 @@ class JobsController < ApplicationController
 
 	def new
 		@job = Job.new
-		@types = Type.all
-		@locations = Location.all
-
+		
 		respond_to do |format|
 			format.html # new.html.erb
 			#format.xml  { render :xml => @job }
@@ -37,8 +35,6 @@ class JobsController < ApplicationController
 
 	def create
 		@job = Job.new(params[:job])
-		@types = Type.all
-		@locations = Location.all
 
 		respond_to do |format|
 			if @job.save
@@ -89,8 +85,6 @@ class JobsController < ApplicationController
 
 	def find_job_with_key
 		@job = Job.find_by_id_and_key(params[:id], params[:key])
-		@types = Type.all
-		@locations = Location.all
 		
 		if @job.nil?
 			flash[:notice] = "That job is no longer available"
