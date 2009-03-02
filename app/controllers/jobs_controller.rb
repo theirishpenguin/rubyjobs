@@ -34,18 +34,24 @@ class JobsController < ApplicationController
 	end
 
 	def create
-		@job = Job.new(params[:job])
+		if !params[:sticky_goo_pot].blank? #houston, we have a spammer
+			redirect_to :action => 'new'
+		else
+			@job = Job.new(params[:job])
+			@types = Type.all
+			@locations = Location.all
 
-		respond_to do |format|
-			if @job.save
-				JobMailer.deliver_confirmation(@job)
+			respond_to do |format|
+				if @job.save
+					JobMailer.deliver_confirmation(@job)
 
-				flash[:notice] = 'Job was successfully created.'
-				format.html { redirect_to :action => 'show', :id => @job.id, :key => @job.key }
-				#format.xml  { render :xml => @job, :status => :created, :location => @job }
-			else
-				format.html { render :action => "new" }
-				#format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
+					flash[:notice] = 'Job was successfully created.'
+					format.html { redirect_to :action => 'show', :id => @job.id, :key => @job.key }
+					#format.xml  { render :xml => @job, :status => :created, :location => @job }
+				else
+					format.html { render :action => "new" }
+					#format.xml  { render :xml => @job.errors, :status => :unprocessable_entity }
+				end
 			end
 		end
 	end

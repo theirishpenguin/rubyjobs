@@ -199,6 +199,20 @@ describe JobsController do
 				response.should have_tag("div.errorExplanation")
 			end
 		end
+		
+		describe "with a non-blank honeypot" do
+			before do
+				post 'create', { :job => Factory.build(:job).attributes, :sticky_goo_pot => "I'm a spammer's computer." }
+			end
+			
+			it "should not create a job" do
+				Job.count.should == 0
+			end
+			
+			it "should redirect to the new job action" do
+				response.should be_redirect
+			end
+		end
 	end
 
 	describe "the update action" do
