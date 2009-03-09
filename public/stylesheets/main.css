@@ -303,6 +303,10 @@ table.form tr {
 	padding: 4px;
 }
 
+table.form tr.sticky_goo_pot {
+	display: none;
+}
+
 table.form tr.private {
 	background-color: #ddd;
 }
