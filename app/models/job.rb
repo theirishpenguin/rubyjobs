@@ -6,7 +6,7 @@ class Job < ActiveRecord::Base
 	belongs_to :location
 	
 	searchable_on :company, :title, :description, :how_to_apply, :location_name, :type_name #see http://github.com/wvanbergen/scoped_search/tree/master
-	named_scope :recent, lambda { { :conditions => ['created_at > ?', 4.week.ago], :order => 'created_at DESC' } }
+	named_scope :recent, lambda { { :conditions => ['created_at > ?', 8.week.ago], :order => 'created_at DESC' } }
 	
 	before_save :set_key
 	
